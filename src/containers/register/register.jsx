@@ -28,7 +28,9 @@ class Register extends Component{
   toLogin = () =>{
     this.props.history.replace('./login')
   }
-
+  register = () => {
+    console.log(JSON.stringify(this.state))
+  }
   render(){
 
     const {type}=this.state
@@ -55,7 +57,7 @@ class Register extends Component{
                    onClick={()=>this.handleChange('type','god')}>大神</Radio>
                </List.Item>
               <WhiteSpace/>
-              <Button type='primary'>注 册</Button>
+              <Button type='primary' onClik={this.register}>注 册</Button>
               <WhiteSpace/>
               <Button onClick={this.toLogin}>已有账户</Button>
 
