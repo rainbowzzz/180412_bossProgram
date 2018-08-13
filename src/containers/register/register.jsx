@@ -9,7 +9,7 @@ import {NavBar,
 } from 'antd-mobile';
 import Logo from '../../components/logo/logo'
 
-
+import {reqRegister} from '../../api'
 class Register extends Component{
 
   state={
@@ -29,7 +29,10 @@ class Register extends Component{
     this.props.history.replace('./login')
   }
   register = () => {
-    console.log(JSON.stringify(this.state))
+    console.log(JSON.stringify(this.state));
+    reqRegister(this.state).then(response=>{
+      console.log(response.data)
+    })
   }
   render(){
 
@@ -53,11 +56,11 @@ class Register extends Component{
                  <span>用户类型：</span>&nbsp;&nbsp;&nbsp;
                  <Radio  checked={this.state.type==='boss'}
                    onClick={()=>this.handleChange('type','boss')}>老板</Radio>&nbsp;&nbsp;
-                 <Radio checked={this.state.type==='boss'}
+                 <Radio checked={this.state.type==='god'}
                    onClick={()=>this.handleChange('type','god')}>大神</Radio>
                </List.Item>
               <WhiteSpace/>
-              <Button type='primary' onClik={this.register}>注 册</Button>
+              <Button type='primary' onClick={this.register}>注 册</Button>
               <WhiteSpace/>
               <Button onClick={this.toLogin}>已有账户</Button>
 
