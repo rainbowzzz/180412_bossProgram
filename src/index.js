@@ -4,11 +4,14 @@ import {HashRouter,Switch,Route} from 'react-router-dom'
 import {Provider} from 'react-redux';
 
 
-import store from './redux/store'
+
 import Login  from './containers/login/login'
 import Register  from './containers/register/register'
 import Main  from './containers/main/main'
+import store from './redux/store'
+import './assets/css/index.less'
 
+//import './test/socket _test'
 
 ReactDOM.render((
   <Provider store={store}>
